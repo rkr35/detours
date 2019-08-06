@@ -1,7 +1,7 @@
 //! Build detours.
 fn build_detours() {
     cc::Build::new()
-        .include("deps/detours-src/src/")
+        .include("deps/Detours/src/")
         .static_crt(true)
         .flag("/MT")
         .flag("/W4")
@@ -12,18 +12,18 @@ fn build_detours() {
         .flag("/Od")
         .define("WIN32_LEAN_AND_MEAN", "1")
         .define("_WIN32_WINNT", "0x501")
-        .file("deps/detours-src/src/detours.cpp")
-        .file("deps/detours-src/src/modules.cpp")
-        .file("deps/detours-src/src/disasm.cpp")
-        .file("deps/detours-src/src/image.cpp")
-        .file("deps/detours-src/src/creatwth.cpp")
+        .file("deps/Detours/src/detours.cpp")
+        .file("deps/Detours/src/modules.cpp")
+        .file("deps/Detours/src/disasm.cpp")
+        .file("deps/Detours/src/image.cpp")
+        .file("deps/Detours/src/creatwth.cpp")
         .compile("detours");
 }
 
 fn generate_bindings() {
     use std::{env, fs, path::PathBuf};
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    fs::copy("deps/detours-src/src/detours.h", out_path.join("detours.h")).unwrap();
+    fs::copy("deps/Detours/src/detours.h", out_path.join("detours.h")).unwrap();
     //
     let bindings = bindgen::Builder::default()
         .clang_arg(format!("-I{}", out_path.to_str().expect("OUTDIR is weird")))
