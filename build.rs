@@ -20,7 +20,6 @@ fn build_detours() {
         .compile("detours");
 }
 
-#[cfg(feature = "buildtime_bindgen")]
 fn generate_bindings() {
     use std::{env, fs, path::PathBuf};
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
@@ -87,9 +86,6 @@ fn generate_bindings() {
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 }
-
-#[cfg(not(feature = "buildtime_bindgen"))]
-fn generate_bindings() {}
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");

@@ -1,13 +1,20 @@
-# Detours Meta Repo
+# Detours-sys
 
+[![Crates.io](https://img.shields.io/crates/v/detours-sys.svg)](https://crates.io/crates/detours-sys)
 ![maintenance-as-is](https://img.shields.io/badge/maintenance-as--is-yellow.svg)
 
 Rust bindings to [Microsoft Detours](https://github.com/Microsoft/Detours)
 
+## Usage
+
+See the [Detours Documentation](https://github.com/Microsoft/Detours/wiki) for details.
+
 ## Details
 
-This repo (will) contain both raw bindings to Microsoft Detours and
-Idiomatic Rust bindings.
+Use the `buildtime_generation` feature to generate bindings at build time,
+otherwise use pregenerated bindings.
+
+Note that this will require a relatively recent version of Clang be installed.
 
 ## License
 
