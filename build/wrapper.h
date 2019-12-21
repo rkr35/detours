@@ -1,2 +1,2 @@
 #include <windows.h>
-#include "..\deps\Detours\include\detours.h"
+#include "..\deps\Detours\src\detours.h"
