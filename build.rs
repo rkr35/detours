@@ -2,7 +2,6 @@
 fn build_detours() {
     cc::Build::new()
         .include("deps/Detours/src/")
-        .static_crt(true)
         .flag("/MT")
         .flag("/W4")
         .flag("/WX")
