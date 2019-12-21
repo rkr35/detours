@@ -29,14 +29,6 @@ maintenance = { status = "as-is" }
 
 [dependencies]
 
-[dev-dependencies.winapi]
-version = "0"
-features = [
-    "synchapi",
-    "processthreadsapi",
-    "sysinfoapi",
-]
-
 [build-dependencies]
 cc = { version = "1.0", features = ["parallel"] }
 bindgen = { version = "0" } 
