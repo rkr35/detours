@@ -23,10 +23,6 @@ fn generate_bindings() {
     fs::copy("deps/Detours/src/detours.h", out_path.join("detours.h")).unwrap();
     //
     let bindings = bindgen::Builder::default()
-        .clang_arg(format!("-I{}", out_path.to_str().expect("OUTDIR is weird")))
-        .clang_arg("-fms-compatibility")
-        .clang_arg("-fms-extensions")
-
         .whitelist_function("DetourTransactionBegin")
         .whitelist_function("DetourUpdateThread")
         .whitelist_function("DetourAttach")
