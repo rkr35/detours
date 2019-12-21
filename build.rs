@@ -32,10 +32,11 @@ fn generate_bindings() {
         .use_core()
         .header("build/wrapper.h")
         .generate()
-        .expect("Unable to generate bindings");
-    //
+        .expect("unable to generate bindings");
+
     bindings
         .write_to_file(out_path)
+        .expect("couldn't write bindings");
 }
 
 fn main() {
