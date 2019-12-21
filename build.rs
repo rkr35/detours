@@ -32,7 +32,7 @@ fn generate_bindings() {
         .whitelist_function("DetourAttach")
         .whitelist_function("DetourDetach")
         .whitelist_function("DetourTransactionCommit")
-
+        .use_core()
         .header("build/wrapper.h")
         .generate()
         .expect("Unable to generate bindings");
