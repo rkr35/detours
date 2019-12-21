@@ -1,15 +1,13 @@
-//! Build detours.
 fn build_detours() {
     cc::Build::new()
-        .include("deps/Detours/src/")
-        .flag("/MT")
         .flag("/W4")
         .flag("/WX")
+        .flag("/MT")
         .flag("/Gy")
         .flag("/Gm-")
         .flag("/Zl")
         .flag("/Od")
-        .define("WIN32_LEAN_AND_MEAN", "1")
+        .define("WIN32_LEAN_AND_MEAN", None)
         .define("_WIN32_WINNT", "0x501")
         .file("deps/Detours/src/detours.cpp")
         .file("deps/Detours/src/modules.cpp")
