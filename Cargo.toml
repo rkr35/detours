@@ -30,7 +30,7 @@ maintenance = { status = "as-is" }
 [dependencies]
 
 [dev-dependencies.winapi]
-version = "0.3.7"
+version = "0"
 features = [
     "synchapi",
     "processthreadsapi",
@@ -39,4 +39,4 @@ features = [
 
 [build-dependencies]
 cc = { version = "1.0", features = ["parallel"] }
-bindgen = { version = "0.51" } 
+bindgen = { version = "0" } 
