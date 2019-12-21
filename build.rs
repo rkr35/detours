@@ -18,10 +18,11 @@ fn build_detours() {
 }
 
 fn generate_bindings() {
-    use std::{env, fs, path::PathBuf};
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    fs::copy("deps/Detours/src/detours.h", out_path.join("detours.h")).unwrap();
-    //
+    let mut out_path: PathBuf = env::var("OUT_DIR")
+        .expect("unable to fetch OUT_DIR environment variable")
+        .into();
+
+    out_path.push("bindings.rs");
     let bindings = bindgen::Builder::default()
         .whitelist_function("DetourTransactionBegin")
         .whitelist_function("DetourUpdateThread")
@@ -34,8 +35,7 @@ fn generate_bindings() {
         .expect("Unable to generate bindings");
     //
     bindings
-        .write_to_file(out_path.join("bindings.rs"))
-        .expect("Couldn't write bindings!");
+        .write_to_file(out_path)
 }
 
 fn main() {
