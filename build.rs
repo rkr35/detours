@@ -43,7 +43,6 @@ fn generate_bindings() {
 }
 
 fn main() {
-    println!("cargo:rerun-if-changed=build.rs");
     build_detours();
     generate_bindings();
 }
