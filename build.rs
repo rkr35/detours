@@ -22,6 +22,8 @@ fn build_detours() {
 
     cc::Build::new()
         .include(DETOURS_SOURCE_DIR)
+
+        // CFLAGS: https://github.com/microsoft/Detours/blob/64ec135a509884aa60ac6c19b59564f1da9cb2fa/src/Makefile#L19
         .flag("/W4")
         .flag("/WX")
         .flag("/MT")
@@ -29,6 +31,8 @@ fn build_detours() {
         .flag("/Gm-")
         .flag("/Zl")
         .flag("/Od")
+
+        // https://github.com/microsoft/Detours/blob/64ec135a509884aa60ac6c19b59564f1da9cb2fa/src/Makefile#L24
         .define("WIN32_LEAN_AND_MEAN", None)
         .define("_WIN32_WINNT", "0x501")
         .files(source_files)
