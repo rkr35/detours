@@ -63,6 +63,9 @@ fn generate_bindings() {
 }
 
 fn main() {
+    // Tell cargo to invalidate the built crate whenever the wrapper changes
+    println!("cargo:rerun-if-changed=build/wrapper.h");
+    
     build_detours();
     generate_bindings();
 }
